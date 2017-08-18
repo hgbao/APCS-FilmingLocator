@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO -->
+	<title>FilmingLocator - Filming Location Visualization</title>
+	<meta name="description" content="Filming locations on the globe visualized using Google Charts, some additional libraries."/>
+	<meta name="keywords"    content="filming location, cs427, hgbao, movie locator, movie, locator, 1351004"/>
+
+	<!-- Favicons-->
+	<link rel="icon" href="assets/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="apple-touch-icon-precomposed" href="assets/images/favicon/apple-touch-icon-152x152.png">
+
+	<!-- Libraries -->
+	<link rel="stylesheet" href="assets/plugins/materialize/materialize.min.css" />
+	<link rel="stylesheet" href="assets/plugins/perfect-scrollbar/perfect-scrollbar.css" />
+	<link rel="stylesheet" href="assets/plugins/style.min.css" />
+	<link rel="stylesheet" href="assets/plugins/ion-range-slider/css/ion.rangeSlider.css" >
+	<link rel="stylesheet" href="assets/plugins/ion-range-slider/css/ion.rangeSlider.skinFlat.css" >
+
+
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+	<!-- START HEADER -->
+	<header id="header" class="page-topbar">
+		<div class="navbar-fixed">
+			<nav class="navbar-color cyan accent-4">
+				<div class="nav-wrapper">
+					<ul class="left">                      
+						<li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="assets/images/filminglocator-logo.png" alt="filming locator logo"></a> <span class="logo-text">FilmingLocator</span></h1></li>
+					</ul>
+					<ul class="right hide-on-med-and-down">
+						<li><a id="login" href="#" class="waves-effect waves-block waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="UNDER CONSTRUCTION">Login</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- END HEADER -->
+
+
+	<!-- START MAIN -->
+	<div id="main">
+		<!-- START WRAPPER -->
+		<div class="wrapper">
+			<!-- START LEFT SIDEBAR NAV-->
+			<aside id="left-sidebar-nav">
+				<ul id="slide-out" class="side-nav fixed leftside-navigation">
+					<li class="li-hover"><div class="divider"></div></li>
+					<li class="li-hover"><p class="ultra-small margin more-text">INFORMATION</p></li>
+					<li><a id="nav-definition" href="javascript:void(0);"><i class="mdi-action-turned-in"></i>Definition</a></li>
+					<li><a id="nav-environment" href="javascript:void(0);"><i class="mdi-hardware-cast-connected"></i>Environment</a></li>
+					<li><a id="nav-background" href="javascript:void(0);"><i class="mdi-hardware-security"></i>Background</a></li>
+
+					<li class="li-hover"><div class="divider"></div></li>
+					<li class="li-hover"><p class="ultra-small margin more-text">VISUALIZATION</p></li>
+					<li><a id="nav-treemap" href="javascript:void(0);"><i class="mdi-editor-insert-chart"></i>Treemap</a></li>
+					<li><a id="nav-linechart" href="javascript:void(0);"><i class="mdi-editor-insert-chart"></i>Linechart</a></li>
+					
+					<li class="li-hover"><div class="divider"></div></li>
+					<li class="li-hover"><p class="ultra-small margin more-text">SPECIFICATION</p></li>
+					<li><a id="nav-reference" href="javascript:void(0);"><i class="mdi-action-class"></i>Reference</a></li>
+					<li><a id="nav-author" href="javascript:void(0);"><i class="mdi-action-assignment-ind"></i>Author</a></li>
+					<li><a id="nav-changelog" href="javascript:void(0);"><i class="mdi-action-announcement"></i>Changelog</a></li>
+				</ul>
+				<a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
+			</aside>
+			<!-- END LEFT SIDEBAR NAV-->
+
+
+			<!-- START CONTENT -->
+			<section id="content">
+				<div id="card-widgets" class="seaction">
+					<div class="row">
+						<div id="card-definition" class="col s12 m4 l4">
+							<h4 class="header">Definition</h4>
+							<div class="card  light-blue">
+								<div class="card-content white-text">
+									<span class="card-title">What is this?</span>
+									<p>A website using treemap and linechart to visualize filming locations for 1000 movies popularly voted following The Movie Database website. Following steps:</p>
+									<p><i class="mdi-action-label"></i> Take the first 1000 movies from popular movie list from The Movie Database API.</p>
+									<p><i class="mdi-action-label"></i> Get the IMDB code for each movie.</p>
+									<p><i class="mdi-action-label"></i> Go to the IMDB detail page of the movie, crawl all filming location data from that page.</p>
+								</div>
+								<div class="card-action">
+									<a href="https://www.themoviedb.org/movie" target="_blank" class="lime-text text-accent-1">The Movie Database</a>
+									<a href="http://www.imdb.com/" target="_blank" class="lime-text text-accent-1">IMDB</a>
+								</div>
+							</div>
+						</div>
+
+						<div id="card-environment" class="col s12 m4 l4">
+							<h4 class="header">Environment</h4>
+							<div class="card">
+								<div class="card-image">
+									<img src="assets/images/environment.jpg" alt="environment">
+
+									<span class="card-title">Language</span>
+								</div>
+								<div class="card-content">
+									<p>Front-end development uses HTML, CSS, Javascript and some templates, as well as some open-source libraries. PHP, mySQL for back-end development.</p>
+								</div>
+							</div>
+						</div>
+
+						<div id="card-background" class="col s12 m4 l4">
+							<h4 class="header">Background</h4>
+							<div class="card">
+								<div class="card-image waves-effect waves-block waves-light">
+									<img class="activator" src="assets/images/database.jpg" alt="database">
+								</div>
+								<div class="card-content">
+									<span class="card-title activator grey-text text-darken-4">Real-time visualized? <i class="mdi-navigation-more-vert right"></i></span>
+									<p>The data has been taken by the author by using some functions hidden in the code, then put to the database. Therefore, the data visualized is taken from database, not real-time.</p>
+									<p><i class="mdi-action-label"></i> Database back-up file to import into mySQL host is included in the project.</p>
+								</div>
+								<div class="card-reveal">
+									<span class="card-title grey-text text-darken-4">Login <i class="mdi-navigation-close right"></i></span>
+									<p><i class="mdi-action-label"></i> Top right corner.</p>
+									<p>Using for admin accounts to login and crawl data. Locked for security, to avoid incidentally crawling data (which usually took for an hour to full fill all data need).</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ============================================ -->
+				<div class="divider"></div>
+
+				<!-- Chart work-place -->
+				<div id="work-collections">
+					<div class="row">
+						<div id="card-treemap" class="col s12 m4 l4">
+							<div id="flight-card" class="card">
+								<div class="card-header teal accent-4">
+									<div class="card-title">
+										<h4 class="flight-card-title">Location</h4>
+										<p class="flight-card-date">Stages in location visualization</p>
+									</div>
+								</div>
+
+								<div class="card-content treemap-wrapper">
+									<a id="btn-setting-treemap" class="btn-floating btn-large btn-move-up waves-effect waves-light orange accent-3 right tooltipped" data-position="left" data-delay="50" data-tooltip="Right-click on chart to previous category"><i class="mdi-action-settings activator"></i></a>
+									<div id="loader-wrapper" class="loader-wrapper-block">
+										<div id="loader"></div>
+										<div class="loader-section section-left"></div>
+										<div class="loader-section section-right"></div>
+									</div>
+									<div id="chart-treemap"></div>
+								</div>
+
+								<div class="card-reveal">
+									<span class="card-title grey-text text-darken-4">Configuration <i class="mdi-navigation-close right"></i></span>
+									<div class="row">
+										<div class="col s10">
+											<label>Number of movies</label>
+											<div id="config-treemap-number"></div>
+										</div>
+									</div>
+									<a id="btn-update-treemap" class="btn waves-effect waves-light">Update</a>
+								</div>
+							</div>
+						</div>
+
+
+						<div id="card-linechart" class="col s12 m8 l8">
+							<div id="flight-card" class="card">
+								<div class="card-header teal accent-4">
+									<div class="card-title">
+										<h4 class="flight-card-title">Time series</h4>
+										<p class="flight-card-date">Stages in time visualization</p>
+									</div>
+								</div>
+
+								<div class="card-content linechart-wrapper">
+									<a id="btn-setting-linechart" class="btn-floating btn-large btn-move-up waves-effect waves-light orange accent-3 right"><i class="mdi-action-settings activator"></i></a>
+									<div id="loader-wrapper" class="loader-wrapper-block">
+										<div id="loader"></div>
+										<div class="loader-section section-left"></div>
+										<div class="loader-section section-right"></div>
+									</div>
+									<div id="chart-linechart"></div>
+								</div>
+
+								<div id="config-linechart" class="card-reveal">
+									<span class="card-title grey-text text-darken-4">Configuration <i class="mdi-navigation-close right"></i></span>
+									<div class="row">
+										<div class="col s10">
+											<p>Your choice: <span id="config-linechart-region">All</span>
+												<a id="config-linechart-back" class="waves-effect waves-light darken-2"><i class="mdi-navigation-arrow-drop-up"></i></a></p>
+												<div id="chart-geochart"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col s10">
+												<label>Year range</label>
+												<div id="config-linechart-year"></div>
+											</div>
+										</div>
+										<a id="btn-update-linechart" class="btn waves-effect waves-light">Update</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Chart work-place -->
+
+				<!-- ============================================ -->
+				<div class="divider"></div>
+
+
+				<!-- Project information -->
+				<div id="card-widgets" class="seaction">
+					<div class="row">
+						<!-- Plugins -->
+						<div id="card-reference" class="col s12 m4 l4">
+							<h4 class="header">Reference</h4>
+							<ul id="task-card" class="collection with-header">
+								<li class="collection-header cyan">
+									<h4 class="task-card-title">Plugins</h4>
+									<p class="task-card-date">Public libraries and plugins used</p>
+								</li>
+								<li class="collection-item avatar plugin">
+									<i class="mdi-social-public circle cyan"></i>
+									<label class="plugin">TheMovieDB API<a href="https://www.themoviedb.org/documentation/api" class="secondary-content" target="_blank"><span class="ultra-small">Homepage</span></a></label>
+									<span class="task-cat green accent-4">Database</span>
+								</li>
+								<li class="collection-item avatar plugin">
+									<i class="mdi-action-extension circle cyan"></i>
+									<label class="plugin">jQuery<a href="https://jquery.com/" class="secondary-content" target="_blank"><span class="ultra-small">Homepage</span></a></label>
+									<span class="task-cat teal">Javascript</span>
+								</li>
+								<li class="collection-item avatar plugin">
+									<i class="mdi-action-extension circle cyan"></i>
+									<label class="plugin">Google chart<a href="https://developers.google.com/chart/" class="secondary-content" target="_blank"><span class="ultra-small">Homepage</span></a></label>
+									<span class="task-cat deep-purple accent-1">Chart visualization</span>
+								</li>
+								<li class="collection-item avatar plugin">
+									<i class="mdi-action-extension circle cyan"></i>
+									<label class="plugin">MaterializeCSS<a href="http://materializecss.com/" class="secondary-content" target="_blank"><span class="ultra-small">Homepage</span></a></label>
+									<span class="task-cat pink accent-2">User Interface</span>
+								</li>
+								<li class="collection-item avatar plugin">
+									<i class="mdi-action-settings-input-hdmi circle cyan"></i>
+									<label class="plugin">Perfect scrollbar<a href="https://github.com/noraesae/perfect-scrollbar" class="secondary-content" target="_blank"><span class="ultra-small">Github</span></a></label>
+									<span class="task-cat pink accent-2">User Interface</span>
+								</li>
+								<li class="collection-item avatar plugin">
+									<i class="mdi-action-settings-input-hdmi circle cyan"></i>
+									<label class="plugin">io.rangeSlider<a href="https://github.com/IonDen/ion.rangeSlider" class="secondary-content" target="_blank"><span class="ultra-small">Github</span></a></label>
+									<span class="task-cat pink accent-2">User Interface</span>
+								</li>
+								<li class="collection-item avatar plugin">
+									<i class="mdi-file-cloud-queue circle cyan"></i>
+									<label class="plugin">Materialized Template<a href="http://demo.geekslabs.com/materialize/v3.1/index.html" class="secondary-content" target="_blank"><span class="ultra-small">Demo</span></a></label>
+									<span class="task-cat teal">Template</span>
+								</li>
+							</ul>
+						</div>
+						<!-- Plugins -->
+
+						<!-- Author -->
+						<div id="card-author" class="col s12 m4 l4">
+							<h4 class="header">Author</h4>
+							<div id="profile-card" class="card">
+								<div class="card-image waves-effect waves-block waves-light">
+									<img class="activator" src="assets/images/user-bg.jpg" alt="cover">
+								</div>
+								<div class="card-content">
+									<img src="assets/images/author-avatar.png" alt="hgbao" class="circle responsive-img activator card-profile-image">
+									<a class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right"><i class="mdi-social-school"></i></a>
+									<span class="card-title activator grey-text text-darken-4">Huynh Gia Bao</span>
+									<p><i class="mdi-communication-business"></i> VNUHCM - University of Science</p>
+									<p><i class="mdi-communication-email"></i> hgbao@apcs.vn</p>
+								</div>
+								<div class="card-reveal">
+									<span class="card-title grey-text text-darken-4">Filming locations <i class="mdi-navigation-close right"></i></span>
+									<p>Brief about the project:</p>
+									<p><i class="mdi-navigation-check"></i> Final project CS427</p>
+									<p><i class="mdi-navigation-check"></i> Filming locations for 1000 movies</p>
+									<p><i class="mdi-navigation-check"></i> Visualized by treemap and linechart</p>
+								</div>
+							</div>
+						</div>
+						<!-- Author -->
+
+						<!--Changelog-->
+						<div id="card-changelog" class="col s12 m4 l4">
+							<div id="work-collections" class="seaction">
+								<h4 class="header">Changelog</h4>
+								<ul id="projects-collection" class="collection">
+									<li class="collection-item avatar">
+										<i class="mdi-notification-sms-failed circle light-blue"></i>
+										<span class="collection-header">Changelog</span>
+										<p>Tracking content</p>
+									</li>
+									<li class="collection-item">
+										<div class="row" style="margin-bottom:0px">
+											<div class="col s8">
+												<p class="collections-title">Initial commit</p>
+												<p class="collections-content">09-Sep-16</p>
+											</div>
+											<div class="col s4">
+												<span class="task-cat cyan">1.0.0</span>
+											</div>
+										</div>
+									</li>
+									<li class="collection-item">
+										<div class="row" style="margin-bottom:0px">
+											<div class="col s8">
+												<p class="collections-title">ion.rangeSlider plugin</p>
+												<p class="collections-content">11-Sep-16</p>
+											</div>
+											<div class="col s4">
+												<span class="task-cat cyan">1.0.1</span>
+											</div>
+										</div>
+									</li>
+									<li class="collection-item">
+										<div class="row" style="margin-bottom:0px">
+											<div class="col s8">
+												<p class="collections-title">Merge chart and configuration</p>
+												<p class="collections-content">15-Sep-16</p>
+											</div>
+											<div class="col s4">
+												<span class="task-cat cyan">1.1.0</span>
+											</div>
+										</div>
+									</li>
+									<li class="collection-item">
+										<div class="row" style="margin-bottom:0px">
+											<div class="col s8">
+												<p class="collections-title">Change selectors to Geochart</p>
+												<p class="collections-content">16-Sep-16</p>
+											</div>
+											<div class="col s4">
+												<span class="task-cat cyan">1.2.0</span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!--Changelog-->
+					</div>
+				</div>
+				<!-- Project information -->
+
+			</section>
+		</div>
+	</div>
+	<!-- END MAIN -->
+
+
+	<!-- BEGIN SCRIPTS -->
+	<!-- jQuery -->	
+	<script src="assets/js/jquery-2.2.3.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/main.js"></script>
+	<!-- Google Chart -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<!-- Perfect scrollbar -->
+	<script type="text/javascript" src="assets/plugins/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<!--rangeSlider -->
+	<script type="text/javascript" src="assets/plugins/ion-range-slider/js/ion.rangeSlider.js"></script>
+	<!-- Materialize -->
+	<script type="text/javascript" src="assets/plugins/materialize/materialize.js"></script>
+	<!-- Plugins -->
+	<script type="text/javascript" src="assets/plugins/plugin.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/configure.js"></script>
+	<script type="text/javascript" src="assets/js/chart/treemap.js"></script>
+	<script type="text/javascript" src="assets/js/chart/linechart.js"></script>
+	<script type="text/javascript" src="assets/js/chart/geochart.js"></script>
+	<!-- END SCRIPTS -->
+</body>
+</html>
